@@ -1,0 +1,2 @@
+gitpython>=3.1.30
+argparse>=1.4.0
