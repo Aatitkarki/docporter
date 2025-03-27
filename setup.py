@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="docs_extractor",
-    version="0.1.0",
+    version="0.1.1",
     package_dir={"docs_extractor": "src"},
     packages=["docs_extractor"],
     install_requires=[
@@ -17,9 +17,9 @@ setup(
         ],
     },
     description="A tool to extract documentation files from GitHub repositories and local folders.",
-    author="Your Name",
-    author_email="your.email@example.com",
-    url="https://github.com/yourusername/docs_extractor",
+    author="aatitkarki",
+    author_email="aatitkarki123@gmail.com",
+    url="https://github.com/aatitkarki/docs_extractor",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

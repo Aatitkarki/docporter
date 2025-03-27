@@ -1,35 +1,85 @@
 # Docs Extractor
 
-A Python package to extract documentation files from GitHub repositories.
+A Python package to extract documentation files from GitHub repositories and local folders.
 
 ## Features
 
-- **GitHub Repository Cloning**: Clones a specified GitHub repository using a shallow clone.
-- **Documentation File Filtering**: Identifies and filters documentation files (e.g., `.md`, `.rst`, `README.md`).
-- **Directory Structure Preservation**: Copies filtered files to a new directory while preserving the original structure.
-- **Repository Cleanup**: Removes the cloned repository after extraction.
-- **Command-Line Interface**: Accepts a GitHub repository URL as input.
+- **GitHub Support**:
+
+  - Clones repositories (shallow clone)
+  - Handles various GitHub URL formats
+  - Automatically cleans up after cloning
+
+- **Local Folder Support**:
+
+  - Processes documentation files from local directories
+  - Validates path existence and permissions
+
+- **Documentation Extraction**:
+
+  - Recognizes .md, .mdx, .rst, .txt files
+  - Automatically includes README files
+  - Preserves directory structure in output
+
+- **CLI Interface**:
+  - Simple command-line usage
+  - Custom output directory support
+  - Help messages and error handling
 
 ## Installation
 
+Install directly from PyPI:
+
 ```bash
+pip install docs-extractor
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/aatitkarki/docs_extractor
+cd docs_extractor
 pip install .
 ```
 
 ## Usage
 
+### From GitHub repository:
+
 ```bash
-docs-extractor https://github.com/user/repo.git
+docs-extractor https://github.com/user/repo.git -o ./output-docs
+```
+
+### From local folder:
+
+```bash
+docs-extractor /path/to/local/docs -o ./output-docs
 ```
 
 ## Options
 
-- `-o`, `--output`: Specify the output directory for documentation files.
+- `-o`, `--output`: Specify custom output directory (default: [repo_name]-docs)
 
-## Example
+## Examples
+
+1. Extract docs from GitHub with default output:
 
 ```bash
-docs-extractor https://github.com/user/repo.git -o ./docs
+docs-extractor https://github.com/user/repo.git
+```
+
+2. Extract docs from local folder with custom output:
+
+```bash
+docs-extractor ./my-docs -o ./extracted-docs
+```
+
+## Development
+
+Run tests:
+
+```bash
+pytest
 ```
 
 ## License
