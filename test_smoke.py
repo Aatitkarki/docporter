@@ -4,7 +4,7 @@ import shutil
 
 def test_cli_help():
     """Test that CLI help command works"""
-    result = subprocess.run(["docs-extractor", "--help"], capture_output=True, text=True)
+    result = subprocess.run(["docporter", "--help"], capture_output=True, text=True)
     assert "usage: docs-extractor" in result.stdout
     assert result.returncode == 0
 
@@ -16,7 +16,7 @@ def test_local_extraction(tmp_path):
     
     output_dir = tmp_path / "output"
     result = subprocess.run(
-        ["docs-extractor", str(test_dir), "-o", str(output_dir)],
+        ["docporter", str(test_dir), "-o", str(output_dir)],
         capture_output=True,
         text=True
     )
