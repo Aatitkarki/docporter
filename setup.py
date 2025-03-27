@@ -1,10 +1,10 @@
 from setuptools import setup 
 
 setup(
-    name="docs_extractor",
+    name="docporter",
     version="0.1.1",
-    package_dir={"docs_extractor": "src"},
-    packages=["docs_extractor"],
+    package_dir={"docporter": "src"},
+    packages=["docporter"],
     install_requires=[
         "gitpython",
         "argparse",
@@ -13,13 +13,13 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "docs-extractor=docs_extractor.cli:main",
+            "doc-porter=docporter.cli:main",
         ],
     },
     description="A tool to extract documentation files from GitHub repositories and local folders.",
     author="aatitkarki",
     author_email="aatitkarki123@gmail.com",
-    url="https://github.com/aatitkarki/docs_extractor",
+    url="https://github.com/aatitkarki/docporter",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

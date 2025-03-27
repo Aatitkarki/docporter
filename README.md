@@ -1,4 +1,4 @@
-# Docs Extractor
+# Doc Porter
 
 A Python package to extract documentation files from GitHub repositories and local folders.
 
@@ -31,14 +31,14 @@ A Python package to extract documentation files from GitHub repositories and loc
 Install directly from PyPI:
 
 ```bash
-pip install docs-extractor
+pip install docporter
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/aatitkarki/docs_extractor
-cd docs_extractor
+git clone https://github.com/aatitkarki/docporter
+cd docporter
 pip install .
 ```
 
@@ -47,13 +47,13 @@ pip install .
 ### From GitHub repository:
 
 ```bash
-docs-extractor https://github.com/user/repo.git -o ./output-docs
+doc-porter https://github.com/user/repo.git -o ./output-docs
 ```
 
 ### From local folder:
 
 ```bash
-docs-extractor /path/to/local/docs -o ./output-docs
+doc-porter /path/to/local/docs -o ./output-docs
 ```
 
 ## Options
@@ -65,13 +65,13 @@ docs-extractor /path/to/local/docs -o ./output-docs
 1. Extract docs from GitHub with default output:
 
 ```bash
-docs-extractor https://github.com/user/repo.git
+doc-porter https://github.com/user/repo.git
 ```
 
 2. Extract docs from local folder with custom output:
 
 ```bash
-docs-extractor ./my-docs -o ./extracted-docs
+doc-porter ./my-docs -o ./extracted-docs
 ```
 
 ## Development
