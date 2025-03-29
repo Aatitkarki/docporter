@@ -3,6 +3,7 @@ import shutil
 from git import Repo
 from pathlib import Path
 from urllib.parse import urlparse
+import pyperclip
 
 def is_github_url(source):
     """Check if the source is a GitHub URL."""
@@ -73,7 +74,7 @@ def delete_repo(repo_folder):
     except Exception as e:
         print(f"Error deleting repository folder: {e}")
 
-def main(source, output_folder=None):
+def extract_docs(source, output_folder=None):
     """Main function to extract documentation files from GitHub repository or local folder."""
     repo_name = extract_repo_name(source)
     output_folder = output_folder or f"{repo_name}-docs"
@@ -99,3 +100,46 @@ def main(source, output_folder=None):
         delete_repo(destination_folder)
     
     print(f"Documentation extraction completed. Files saved to: {output_folder}")
+
+def copy_llm_format(source):
+    """Copy documentation in LLM ingestible format to clipboard."""
+    repo_name = extract_repo_name(source)
+    
+    if is_github_url(source):
+        # Handle GitHub repository
+        destination_folder = repo_name
+        clone_repo(source, destination_folder)
+        repo_root = destination_folder
+    else:
+        # Handle local folder
+        repo_root = validate_local_path(source)
+        print(f"Using local folder: {repo_root}")
+    
+    # Filter documentation files
+    doc_files = filter_documentation_files(repo_root)
+    
+    # Format documentation files
+    llm_format = "<documents>\n"
+    for i, file in enumerate(doc_files):
+        try:
+            with open(file, "r") as f:
+                content = f.read()
+        except Exception as e:
+            print(f"Error reading file {file}: {e}")
+            continue
+        llm_format += f'<document index="{i+1}">\n'
+        llm_format += f'<source>{file}</source>\n'
+        llm_format += f'<document_content>\n{content}\n</document_content>\n'
+        llm_format += f'</document>\n'
+    llm_format += "</documents>\n"
+    
+    # Copy to clipboard
+    try:
+        pyperclip.copy(llm_format)
+        print("Copied LLM format to clipboard")
+    except Exception as e:
+        print(f"Error copying to clipboard: {e}")
+    
+    # Clean up if it was a cloned repository
+    if is_github_url(source):
+        delete_repo(destination_folder)

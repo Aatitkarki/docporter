@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "docporter"
-version = "0.1.2"
+version = "0.2.0"
 description = "A tool to extract documentation files from GitHub repositories and local folders"
 authors = [
     {name = "aatitkarki", email = "aatitkarki123@gmail.com"},

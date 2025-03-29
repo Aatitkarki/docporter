@@ -25,6 +25,7 @@ A Python package to extract documentation files from GitHub repositories and loc
   - Simple command-line usage
   - Custom output directory support
   - Help messages and error handling
+  - Copies documentation in LLM ingestible format to clipboard
 
 ## Installation
 
@@ -44,16 +45,22 @@ pip install .
 
 ## Usage
 
-### From GitHub repository:
+### Extract documentation from GitHub repository:
 
 ```bash
-doc-porter https://github.com/user/repo.git -o ./output-docs
+docporter extract https://github.com/aatitkarki/docporter.git -o ./output-docs
 ```
 
-### From local folder:
+### Extract documentation from local folder:
 
 ```bash
-doc-porter /path/to/local/docs -o ./output-docs
+docporter extract /path/to/local/docs -o ./output-docs
+```
+
+### Copy documentation in LLM ingestible xml format to clipboard:
+
+```bash
+docporter copy /path/to/local/docs
 ```
 
 ## Options
@@ -62,16 +69,16 @@ doc-porter /path/to/local/docs -o ./output-docs
 
 ## Examples
 
-1. Extract docs from GitHub with default output:
+1.  Extract docs from GitHub with default output:
 
 ```bash
-doc-porter https://github.com/user/repo.git
+docporter extract https://github.com/user/repo.git
 ```
 
-2. Extract docs from local folder with custom output:
+2.  Extract docs from local folder with custom output:
 
 ```bash
-doc-porter ./my-docs -o ./extracted-docs
+docporter extract ./my-docs -o ./extracted-docs
 ```
 
 ## Development
