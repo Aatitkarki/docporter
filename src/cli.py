@@ -69,6 +69,7 @@ Notes:
     )
     extract_parser.add_argument(
         "--include",
+        "-i",
         nargs='+', # Allows one or more patterns
         metavar='PATTERN',
         type=str,
@@ -77,6 +78,7 @@ Notes:
     )
     extract_parser.add_argument(
         "--exclude",
+        "-e",
         nargs='+', # Allows one or more patterns
         metavar='PATTERN',
         type=str,
@@ -102,6 +104,7 @@ Notes:
     )
     copy_parser.add_argument(
         "--include",
+        "-i",
         nargs='+', # Allows one or more patterns
         metavar='PATTERN',
         type=str,
@@ -110,6 +113,7 @@ Notes:
     )
     copy_parser.add_argument(
         "--exclude",
+        "-e",
         nargs='+', # Allows one or more patterns
         metavar='PATTERN',
         type=str,
