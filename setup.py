@@ -2,13 +2,14 @@ from setuptools import setup
 
 setup(
     name="docporter",
-    version="0.1.1",
+    version="0.2.1",
     package_dir={"docporter": "src"},
     packages=["docporter"],
     install_requires=[
         "gitpython",
         "argparse",
-        "urllib3"
+        "urllib3",
+        "pyperclip"
     ],
     entry_points={
         "console_scripts": [
