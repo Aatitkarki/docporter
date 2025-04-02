@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="docporter",
-    version="0.2.1",
+    version="0.2.3",
     package_dir={"docporter": "src"},
     packages=["docporter"],
     install_requires=[
