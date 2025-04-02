@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3 (2025-04-02)
+
+- Bug fixes and minor improvements.
+
 ## v0.2.1 (2025-04-02)
 
 - Bug fixes and minor improvements.
